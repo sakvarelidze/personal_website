@@ -1,4 +1,3 @@
-from math import lgamma
 from flask import Flask, render_template, request, redirect, url_for, flash, jsonify
 import secrets
 
@@ -27,7 +26,6 @@ app.config['RECAPTCHA_PUBLIC_KEY'] = RECAPTCHA_PUBLIC_KEY
 app.config['RECAPTCHA_PRIVATE_KEY'] = RECAPTCHA_PRIVATE_KEY
 
 # Routes
-
 @app.route('/', methods=['GET', 'POST'])
 def index():
 

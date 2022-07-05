@@ -5,13 +5,33 @@ services:
   mongodb-server:
     container_name: mongodb-server
     image: mongo:latest
+    env_file:
+      - .env
     environment:
-      MONGO_INITDB_ROOT_USERNAME: root
-      MONGO_INITDB_ROOT_PASSWORD: asdasd123
+      MONGO_INITDB_ROOT_USERNAME: ${MONGODB_USER}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGODB_PASSWORD}
     ports:
       - 27017:27017
     networks:
       - webservices
+    restart: always
+
+  mongo-express:
+    image: mongo-express
+    env_file:
+      - .env
+    environment:
+      ME_CONFIG_MONGODB_ADMINUSERNAME: ${MONGODB_USER}
+      ME_CONFIG_MONGODB_ADMINPASSWORD: ${MONGODB_PASSWORD}
+      ME_CONFIG_BASICAUTH_USERNAME: ${MONGODB_EXPRESS_USER}
+      ME_CONFIG_BASICAUTH_PASSWORD: ${MONGODB_EXPRESS_PASS}
+      ME_CONFIG_MONGODB_URL: "mongodb://${MONGODB_USER}:${MONGODB_PASSWORD}@${MONGODB_HOST}:${MONGODB_PORT}/"
+    ports:
+      - 8081:8081
+    networks:
+      - webservices
+    depends_on:
+      - mongodb-server
     restart: always
 
   flask-webapp:

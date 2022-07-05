@@ -751,13 +751,3 @@ p.quote {
         margin-top: 1rem
     }
 }
-
-input {
-    margin-top: 20%;
-}
-  
-output {
-    font-size: 22px;
-    font-family: sans-serif;
-    color: cyan;
-}
