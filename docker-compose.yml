@@ -17,6 +17,7 @@ services:
     restart: always
 
   mongo-express:
+    container_name: mongo-express
     image: mongo-express
     env_file:
       - .env
