@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>{% block title %} {% endblock %}</title>
+    <!-- Primary Meta Tags -->
+    <title>Saba Sakvarelidze | Portfolio</title>
+    <meta name="title" content="Saba Sakvarelidze | Portfolio">
+    <meta name="description" content="Hi! I'm Saba, DevOps Engineer and Back-end developer. Let's get in touch!">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Saba Sakvarelidze | Portfolio">
+    <meta property="og:description" content="Hi! I'm Saba, DevOps Engineer and Back-end developer. Let's get in touch!">
+    <meta property="og:image" content="{{ url_for('static', filename='images/me.jpeg') }}">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="Saba Sakvarelidze | Portfolio">
+    <meta property="twitter:description" content="Hi! I'm Saba, DevOps Engineer and Back-end developer. Let's get in touch!">
+    <meta property="twitter:image" content="{{ url_for('static', filename='images/me.jpeg') }}">
+    <!-- Additional Tags -->
+    <meta name="apple-mobile-web-app-title" content="saba.wtf">
+    <meta name="application-name" content="saba.wtf">
+    <meta name="msapplication-TileColor" content="#00aba9">
+    <meta name="theme-color" content="#ffffff">
+    <!-- Stylesheet & Favicon -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='images/favicon/apple-touch-icon.png') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='images/favicon/favicon-32x32.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='images/favicon/favicon-16x16.png') }}">
+    <link rel="manifest" href="{{ url_for('static', filename='images/favicon/site.webmanifest')  }}">
+    <link rel="mask-icon" href="{{ url_for('static', filename='images/favicon/safari-pinned-tab.svg') }}" color="#4b7884">
+</head>
+
+<body class="">
+    <div class="container header-contianer">
+        <div class="row">
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-8 header-left">
+                <h1>Saba Sakvarelidze</h1>
+                <h2>DevOps / Back-end</h2>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 header-right">
+                <ul class="icons no-print">
+                    <li>
+                        <a target="_blank" href="https://github.com/sakvarelidze"
+                            class="button button--sacnite button--round-l">
+                            <i class="fab fa-github" title="Github link"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a target="_blank" href="https://www.instagram.com/sakvarel1dze"
+                            class="button button--sacnite button--round-l">
+                            <i class="fab fa-instagram" title="Instagram link"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a target="_blank" href="https://www.linkedin.com/in/sakvarelidze"
+                            class="button button--sacnite button--round-l">
+                            <i class="fab fa-linkedin" title="Linkedin link"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a target="_blank" href="https://twitter.com/sakvarel1dze"
+                            class="button button--sacnite button--round-l">
+                            <i class="fab fa-twitter" title="Twitter link"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a target="_blank" href="https://www.youtube.com/channel/UCmRZE_o9_Z4LhSdPUlV5bEQ/featured"
+                            class="button button--sacnite button--round-l">
+                            <i class="fab fa-youtube" title="Youtube link"></i>
+                        </a>
+                    </li>
+                </ul>
+                <p>
+                    Email: <a href="mailto:sakvarelidze.saba@gmail.com" target="_blank">sakvarelidze.saba@gmail.com</a>
+                </p>
+            </div>
+        </div>
+    </div>
+    
+
+{% block main %}
+{% endblock %}
+
+    <div class="container footer-container">
+        <p>
+            Saba Sakvarelidze -
+            <a href="mailto:sakvarelidze.saba@gmail.com" target="_blank">sakvarelidze.saba@gmail.com</a>&nbsp;- References on request
+        </p>
+    </div>
+    <script src="{{ url_for('static', filename='js/index.js') }}"></script>
+
+</body>
+
+</html>

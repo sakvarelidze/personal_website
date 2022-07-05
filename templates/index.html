@@ -1,0 +1,103 @@
+{% extends 'base.html' %}
+{% block title %} Saba Sakvarelidze {% endblock %}
+{% block main %}
+
+<main class="page-content" aria-label="Content">
+    <div class="wrapper">
+        <div class="container intro-container">
+            <h3>About Me</h3>
+            <div class="row clearfix">
+                <div class="col-xs-12 col-sm-4 col-md-3 no-print">
+                    <span class="profile-img"
+                        style="background-image: url(/static/images/me.jpeg)"></span>
+                </div>
+                <div class="col-xs-12 col-sm-8 col-md-9 col-print-12">
+                    <p>Hi, my name’s Saba and I’m a Back-end developer and a DevOps Engineer. As well as administrating
+                        systems I also have experience making software and web apps. I have worked at a number of
+                        companies gaining teamwork and leadership skills.</p>
+                    <p>I am most skilled in: <mark>Python</mark> and <mark>Eating Pizza</mark></p>
+                    <input id="calc" type="date" name="date" hidden>
+                    <h2> <mark>My age:</mark></h2>
+                    <output id="age">.....</output>
+                </div>
+            </div>
+        </div>
+
+        <div class="container list-container">
+            <h3>Projects</h3>
+            
+            {% for project in projects %}
+            <div class="row clearfix layout layout-top-middle">
+                <div class="col-xs-12 col-sm-4 col-md-3 col-print-12 details">
+                    <h4>{{ project.title }}</h4>
+                    <a href="{{ project.project_link }}" target="_blank" class="link">{{ project.project_link_name }}</a>
+                    <!-- <p class="no-print aditional-links">
+                        <a href="//github.com/sproogen/modern-resume-theme" target="_blank" class=""> <i class="fab fa-github" title="sproogen/modern-resume-theme"></i></a>
+                    </p> -->
+                </div>
+                <div class="col-xs-12 col-sm-8 col-md-9 col-print-12 content">
+                    <p class="quote">{{ project.quote }}</p>
+                    <p>{{ project.description|safe }}</p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+        <div class="container list-container">
+            <h3>Experience</h3>
+            {% for job in jobs %}
+            <div class="row clearfix layout layout-left">
+                <div class="col-xs-12 col-sm-4 col-md-3 col-print-12 details">
+                    <h4>{{ job.title }}</h4>
+                    <p><b>{{ job.position }}</b></p>
+                    <p>{{ job.date_working }}</p>
+                    <a href="{{ job.website_link }}" target="_blank" class="link">{{ job.website_link }}</a>
+                    <p class="no-print aditional-links"></p>
+                </div>
+                <div class="col-xs-12 col-sm-8 col-md-9 col-print-12 content">
+                    <p class="quote">{{ job.quote }}</p>
+                    <p>{{ job.description|safe }}</p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+        <div class="container list-container">
+            <h3>Education</h3>
+            {% for edu in edus %}
+            <div class="row clearfix layout layout-left">
+                <div class="col-xs-12 col-sm-4 col-md-3 col-print-12 details">
+                    <h4>{{ edu.title }}</h4>
+                    <p><b>{{ edu.degree }}</b></p>
+                    <p>{{ edu.date_graduated }}</p>
+                    <p class="no-print aditional-links"></p>
+                </div>
+                <div class="col-xs-12 col-sm-8 col-md-9 col-print-12 content">
+                    <p class="quote"> {{ edu.quote }} </p>
+                    <p>{{ edu.description|safe }}</p>
+            {% endfor %}
+            </div>
+
+
+        </div>
+
+        <div class="container text-container">
+            <h3>A Little More About Me</h3>
+            <div class="row clearfix">
+                <div class="col-md-12">
+                    <p>Alongside my interests in DevOps and software engineering some of my other interests and hobbies are:</p>
+                    <ul>
+                        <li>Beatmaking</li>
+                        <li>Music Production</li>
+                        <li>Playing Guitar</li>
+                        <li>Gaming</li>
+                    </ul>
+                    <p>Random Pic of my cat<br />
+                        <img src="{{ url_for('static', filename='images/vasya.jpeg') }}" alt="My cat" title="My cat" />
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock %}
