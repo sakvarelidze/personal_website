@@ -1,3 +1,4 @@
+from crypt import methods
 from flask import Flask, render_template, request, redirect, url_for, flash, jsonify
 import secrets
 
@@ -11,7 +12,7 @@ POSTS_IMAGES = os.path.join('static', 'post_images')
 
 
 # Initialize additional config
-app.secret_key = FLASK_SECRET_KEY
+app.config['SECRET_KEY'] = FLASK_SECRET_KEY
 app.config['UPLOAD_FOLDER'] = POSTS_IMAGES
 app.config['MONGODB_NAME'] = MONGODB_NAME
 app.config['MONGODB_HOST'] = MONGODB_HOST
@@ -22,7 +23,8 @@ app.config['MONGODB_USER'] = MONGODB_USER
 @app.route('/', methods=['GET', 'POST'])
 def index():
 
-    connect(db=MONGODB_NAME, host=MONGODB_HOST, username=MONGODB_USER, password=MONGODB_PASSWORD, port=27017)
+    #connect(db=MONGODB_NAME, host=MONGODB_HOST, username=MONGODB_USER, password=MONGODB_PASSWORD, port=27017)
+    connect(db=MONGODB_NAME, host=MONGODB_HOST, port=27017)
     projects = ProjectPosts.objects()
     jobs = ExperiencePosts.objects()
     edus = EducationPosts.objects()
@@ -33,11 +35,13 @@ def index():
 @app.route('/admin', methods=['GET', 'POST'])
 def index_admin():
 
-    return "<h1 align='center'> Admin page is under construction </h1>"
+    return "TBA"
 
 @app.route('/blog', methods=['GET','POST'])
 def blogs():
+
     return "<h1 align='center'> Blog Page is under construction </h1>"
+
 
 # Error handler
 from error_handler import *
