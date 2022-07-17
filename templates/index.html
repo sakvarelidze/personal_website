@@ -15,7 +15,7 @@
                     <p>Hi, my name’s Saba and I’m a Back-end developer and a DevOps Engineer. As well as administrating
                         systems I also have experience making software and web apps. I have worked at a number of
                         companies gaining teamwork and leadership skills.</p>
-                    <p>I am most skilled in: <mark>Python</mark> and <mark>Eating Pizza</mark></p>
+                    <p>I am most skilled in: <mark>Python</mark> and <mark>eating junk food</mark></p>
                 </div>
             </div>
         </div>
@@ -28,9 +28,6 @@
                 <div class="col-xs-12 col-sm-4 col-md-3 col-print-12 details">
                     <h4>{{ project.title }}</h4>
                     <a href="{{ project.project_link }}" target="_blank" class="link">{{ project.project_link_name }}</a>
-                    <!-- <p class="no-print aditional-links">
-                        <a href="//github.com/sproogen/modern-resume-theme" target="_blank" class=""> <i class="fab fa-github" title="sproogen/modern-resume-theme"></i></a>
-                    </p> -->
                 </div>
                 <div class="col-xs-12 col-sm-8 col-md-9 col-print-12 content">
                     <p class="quote">{{ project.quote }}</p>
@@ -52,7 +49,6 @@
                     <p class="no-print aditional-links"></p>
                 </div>
                 <div class="col-xs-12 col-sm-8 col-md-9 col-print-12 content">
-                    <p class="quote">{{ job.quote }}</p>
                     <p>{{ job.description|safe }}</p>
                 </div>
             </div>
@@ -70,12 +66,9 @@
                     <p class="no-print aditional-links"></p>
                 </div>
                 <div class="col-xs-12 col-sm-8 col-md-9 col-print-12 content">
-                    <p class="quote"> {{ edu.quote }} </p>
                     <p>{{ edu.description|safe }}</p>
             {% endfor %}
             </div>
-
-
         </div>
 
         <div class="container text-container">
