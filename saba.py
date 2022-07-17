@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for, flash, jsonify, session
 
-# Custom import
+# .ENV import and MongoDB connection
 from config import *
 from mongo_models import *
 
@@ -9,7 +9,7 @@ app = Flask(__name__)
 POSTS_IMAGES = os.path.join('static', 'post_images')
 
 
-# Initialize additional config
+# Initialize config
 app.config['SECRET_KEY'] = FLASK_SECRET_KEY
 app.config['UPLOAD_FOLDER'] = POSTS_IMAGES
 app.config['MONGODB_NAME'] = MONGODB_NAME
@@ -17,7 +17,7 @@ app.config['MONGODB_HOST'] = MONGODB_HOST
 app.config['MONGODB_PORT'] = MONGODB_PORT
 app.config['MONGODB_USER'] = MONGODB_USER
 
-# Error handler
+# Routes & Error Handlers
 from routes import *
 from error_handler import *
 
