@@ -8,7 +8,6 @@ from mongo_models import *
 app = Flask(__name__)
 POSTS_IMAGES = os.path.join('static', 'post_images')
 
-
 # Initialize config
 app.config['SECRET_KEY'] = FLASK_SECRET_KEY
 app.config['UPLOAD_FOLDER'] = POSTS_IMAGES

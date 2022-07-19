@@ -4,27 +4,14 @@ import datetime
 now = datetime.datetime.now()
 now_no_seconds = now.isoformat(" ", "seconds")
 
+
 class User(Document):
-    login = StringField(max_length=80, unique=True)
+    uid = StringField(required=True)
+    username = StringField(max_length=80, unique=True)
     email = StringField(max_length=120)
-    password = StringField(max_length=64)
+    password = StringField(max_length=256)
+    date_registered = DateTimeField(required=True, default=now_no_seconds)
 
-    # Flask-Login integration
-    def is_authenticated(self):
-        return True
-
-    def is_active(self):
-        return True
-
-    def is_anonymous(self):
-        return False
-
-    def get_id(self):
-        return str(self.id)
-
-    # Required for administrative interface
-    def __unicode__(self):
-        return self.login
 
 class ProjectPosts(Document):
     title = StringField(required=True, max_length=120)
